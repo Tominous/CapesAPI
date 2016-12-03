@@ -15,6 +15,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::group([
+	'prefix' => 'developer',
+	'as' => 'developer::'
+], function() {
+	Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@showLoginForm']);
+	Route::post('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@login']);
+	Route::get('logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
 
-Route::get('/home', 'HomeController@index');
+	// Registration Routes...
+	Route::get('register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@showRegistrationForm']);
+	Route::post('register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@register']);
+
+	// Password Reset Routes...
+	Route::get('password/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@showResetForm']);
+	Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\PasswordController@sendResetLinkEmail']);
+	Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\PasswordController@reset']);
+});
+
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index');
