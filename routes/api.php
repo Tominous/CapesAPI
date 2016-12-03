@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +12,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('ping', function() {
-	return 'pong';
+Route::get('ping', function () {
+    return 'pong';
 });
