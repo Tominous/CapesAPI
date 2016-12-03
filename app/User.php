@@ -4,10 +4,17 @@ namespace CapesAPI;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Klaravel\Ntrust\Traits\NtrustUserTrait;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use NtrustUserTrait;
+
+    /*
+     * Role profile to get value from ntrust config file.
+     */
+    protected static $roleProfile = 'user';
 
     /**
      * The attributes that are mass assignable.
