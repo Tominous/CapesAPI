@@ -2,8 +2,8 @@
 
 namespace CapesAPI;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Klaravel\Ntrust\Traits\NtrustUserTrait;
 
 class User extends Authenticatable
