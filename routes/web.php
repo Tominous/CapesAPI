@@ -42,10 +42,10 @@ Route::group([
 
 		Route::get('{hash}/capes/create', 'CapesController@showCreateCape')->name('showCreateCape')->where('hash', '[A-Za-z0-9]+');
 		Route::post('{hash}/capes/create', 'CapesController@createCape')->name('createCape')->where('hash', '[A-Za-z0-9]+');
-		
-		Route::get('{hash}/capes/edit/{capeHash}', 'CapesController@showEditCape')->name('showEditCape')->where('hash' => '[A-Za-z0-9]+', 'capeHash' => '[A-Za-z0-9]+');
-		Route::post('{hash}/capes/edit/{capeHash}', 'CapesController@editCape')->name('editCape')->where('hash' => '[A-Za-z0-9]+', 'capeHash' => '[A-Za-z0-9]+');
-		Route::delete('{hash}/capes/edit/{capeHash}', 'CapesController@deleteCape')->name('deleteCape')->where('hash' => '[A-Za-z0-9]+', 'capeHash' => '[A-Za-z0-9]+');
+
+		Route::get('{hash}/capes/edit/{capeHash}', 'CapesController@showEditCape')->name('showEditCape')->where(['hash' => '[A-Za-z0-9]+', 'capeHash' => '[A-Za-z0-9]+']);
+		Route::post('{hash}/capes/edit/{capeHash}', 'CapesController@editCape')->name('editCape')->where(['hash' => '[A-Za-z0-9]+', 'capeHash' => '[A-Za-z0-9]+']);
+		Route::delete('{hash}/capes/edit/{capeHash}', 'CapesController@deleteCape')->name('deleteCape')->where(['hash' => '[A-Za-z0-9]+', 'capeHash' => '[A-Za-z0-9]+']);
 	});
 });
 
