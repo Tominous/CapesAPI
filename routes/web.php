@@ -24,7 +24,7 @@ Route::group([
     'middleware' => ['role:developer|admin'],
 ], function () {
     Route::get('/', function () {
-        return view('developer.dashboard');
+        return view('developer.dashboard', ['projects' => DB::table('projects')->where('developer_id', '=', Auth::user()->id)->paginate()]);
     })->name('dashboard');
 
     Route::group([
