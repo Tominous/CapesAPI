@@ -12,13 +12,14 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
+    
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
+    <script src="https://use.fontawesome.com/a551ad771b.js"></script>
 </head>
 <body>
     <div id="app">
@@ -50,11 +51,21 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                            <li>
+                                <a href="testing">User Login</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdlgwn-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Developers <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('/login') }}">Login</a></li>
+                                    <li><a href="{{ url('/register') }}">Register</a></li>
+                                </ul>
+                            </li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#" class="dropdlgwn-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -79,6 +90,14 @@
         </nav>
 
         @yield('content')
+
+        <div class="footer">
+            <div class="container">
+                <div class="copyright">
+                    &copy; Copyright <a href="https://halfpetal.com" target="_blank">Halfpetal</a> {{ date('Y') }}. All rights reserved. 
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->

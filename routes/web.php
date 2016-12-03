@@ -15,36 +15,54 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
 Route::group([
 	'prefix' => 'developer',
-	'as' => 'developer::'
+	'as' => 'developer::',
+	'namespace' => 'Developer',
+	'middleware' => ['role:developer|admin']
 ], function() {
-	Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\LoginController@showLoginForm']);
-	Route::post('login', ['as' => 'auth.login', 'uses' => 'Auth\LoginController@login']);
-	Route::get('logout', ['as' => 'auth.logout', 'uses' => 'Auth\LoginController@logout']);
-
-	// Registration Routes...
-	Route::get('register', ['as' => 'auth.register', 'uses' => 'Auth\RegisterController@showRegistrationForm']);
-	Route::post('register', ['as' => 'auth.register', 'uses' => 'Auth\RegisterController@register']);
-
-	// Password Reset Routes...
-	Route::get('password/reset/{token?}', ['as' => 'auth.password.reset', 'uses' => 'Auth\ResetPasswordController@showResetForm']);
-	Route::post('password/email', ['as' => 'auth.password.email', 'uses' => 'Auth\ResetPasswordController@sendResetLinkEmail']);
-	Route::post('password/reset', ['as' => 'auth.password.reset', 'uses' => 'Auth\ResetPasswordController@reset']);
+	Route::get('/', function() {
+		return view('developer.dashboard');
+	})->name('dashboard');
 
 	Route::group([
-		'prefix' => 'home',
-		'as' => 'home::'
-		'middleware' => ['role:developer|admin']
+		'prefix' => 'project',
+		'as' => 'project::'
 	], function() {
-		Route::get('/', []);
-	});
+		Route::get('create', 'ProjectController@showCreateProject')->name('showCreateProject');
+		Route::post('create', 'ProjectController@createProject')->name('createProject');
 
-	Route::group([
-		'prefix' => 'admin',
-		'as' => 'admin::',
-		'middleware' => ['role:admin']
-	], function() {
-		Route::get('/', []);
+		Route::get('{hash}', function() {
+			return redirect()->route('developer::project::capes')->with('hash');
+		})->where('hash','[A-Za-z0-9]+');
+
+		Route::get('{hash}/capes', 'CapesController@getCapes')->name('capes')->where('hash', '[A-Za-z0-9]+');
+
+		Route::get('{hash}/capes/create', 'CapesController@showCreateCape')->name('showCreateCape')->where('hash', '[A-Za-z0-9]+');
+		Route::post('{hash}/capes/create', 'CapesController@createCape')->name('createCape')->where('hash', '[A-Za-z0-9]+');
+		
+		Route::get('{hash}/capes/edit/{capeHash}', 'CapesController@showEditCape')->name('showEditCape')->where('hash' => '[A-Za-z0-9]+', 'capeHash' => '[A-Za-z0-9]+');
+		Route::post('{hash}/capes/edit/{capeHash}', 'CapesController@editCape')->name('editCape')->where('hash' => '[A-Za-z0-9]+', 'capeHash' => '[A-Za-z0-9]+');
+		Route::delete('{hash}/capes/edit/{capeHash}', 'CapesController@deleteCape')->name('deleteCape')->where('hash' => '[A-Za-z0-9]+', 'capeHash' => '[A-Za-z0-9]+');
 	});
 });
+
+Route::group([
+	'prefix' => 'admin',
+	'as' => 'admin::',
+	'middleware' => ['role:admin']
+], function() {
+	Route::get('/', function() {
+		return 'hello admin';
+	});
+});
+
+Route::get('docs', function() {
+	return 'documentation';
+})->name('api-docs');
+
+Route::get('donate', function() {
+	return 'documentation';
+})->name('donate');

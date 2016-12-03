@@ -7,3 +7,23 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+
+	.copyright {
+		text-align: left;
+	}
+	
+	.social {
+		text-align: right;
+		margin-bottom: 10px;
+	}
+}
