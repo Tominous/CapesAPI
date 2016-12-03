@@ -7,7 +7,8 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
-        "klaravel/ntrust": "^1.1"
+        "klaravel/ntrust": "^1.1",
+        "navarr/minecraft-api": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

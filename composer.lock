@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f7aa87315c452a308a6e62ed5f8b3cf8",
-    "content-hash": "48ec1294af28e50786df7de4fed12c19",
+    "hash": "e44a2b50b240ba9a297274ea067cf24c",
+    "content-hash": "21dd2b2ba9e8ce4c0af050ab9e068e1d",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -686,6 +686,45 @@
                 "schedule"
             ],
             "time": "2016-01-26 21:23:30"
+        },
+        {
+            "name": "navarr/minecraft-api",
+            "version": "2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/navarr/MinecraftAPI.git",
+                "reference": "a51b352f9dac40ee7f3b7aaef2d7bdd228d110e0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/navarr/MinecraftAPI/zipball/a51b352f9dac40ee7f3b7aaef2d7bdd228d110e0",
+                "reference": "a51b352f9dac40ee7f3b7aaef2d7bdd228d110e0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Navarr\\MinecraftAPI\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Navarr Barnier",
+                    "email": "me@navarr.me",
+                    "homepage": "http://navarr.me/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "An API for validating a Minecraft user against Mojang's servers",
+            "time": "2014-04-10 02:11:00"
         },
         {
             "name": "nesbot/carbon",
