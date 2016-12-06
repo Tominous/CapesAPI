@@ -12,10 +12,10 @@ class Capes extends Model
     protected $table = 'capes';
 
     protected $fillable = [
-    	'project_id',
-    	'hash',
-    	'name',
-    	'template'
+        'project_id',
+        'hash',
+        'name',
+        'template',
     ];
 
     /**

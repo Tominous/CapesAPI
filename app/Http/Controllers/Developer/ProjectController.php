@@ -2,83 +2,90 @@
 
 namespace CapesAPI\Http\Controllers\Developer;
 
-use CapesAPI\Http\Controllers\Controller;
 use Auth;
+use CapesAPI\Http\Controllers\Controller;
+use CapesAPI\Projects;
 use Request;
 use Validator;
-use CapesAPI\Projects;
 
 class ProjectController extends Controller
 {
-	public function showCreateProject() {
-		return view('developer.project.create');
-	}
+    public function showCreateProject()
+    {
+        return view('developer.project.create');
+    }
 
-	public function createProject() {
-		$rules = [
-			'name' => 'required|max:255|min:4',
-			'website' => 'required|url'
-		];
+    public function createProject()
+    {
+        $rules = [
+            'name'    => 'required|max:255|min:4',
+            'website' => 'required|url',
+        ];
 
-		$validation = Validator::make(Request::all(), $rules);
+        $validation = Validator::make(Request::all(), $rules);
 
-		if($validation->fails()) {
-			return redirect()->back()->withInput()->withErrors($validation);
-		} else {
-			$hash = '';
+        if ($validation->fails()) {
+            return redirect()->back()->withInput()->withErrors($validation);
+        } else {
+            $hash = '';
 
-			do {
-				$hash = str_random(6);
-				$hash_db = Projects::where('hash', $hash)->first();
-			} while(!empty($hash_db));
+            do {
+                $hash = str_random(6);
+                $hash_db = Projects::where('hash', $hash)->first();
+            } while (!empty($hash_db));
 
-			Projects::create([
-				'developer_id' => Auth::user()->id,
-				'hash' => $hash,
-				'name' => (Request::has('name') ? Request::get('name') : 'A Minecraft Client'),
-				'website' => (Request::has('website') ? Request::get('website') : env('APP_URL'))
-			]);
+            Projects::create([
+                'developer_id' => Auth::user()->id,
+                'hash'         => $hash,
+                'name'         => (Request::has('name') ? Request::get('name') : 'A Minecraft Client'),
+                'website'      => (Request::has('website') ? Request::get('website') : env('APP_URL')),
+            ]);
 
-			return redirect()->route('developer::project::capes', ['hash' => $hash]);
-		}
-	}
+            return redirect()->route('developer::project::capes', ['hash' => $hash]);
+        }
+    }
 
-	public function editProject($hash) {
-		$project = Projects::where('hash', $hash)->first();
-		
-		if($project->developer_id != Auth::user()->id)
-			abort(403);
+    public function editProject($hash)
+    {
+        $project = Projects::where('hash', $hash)->first();
 
-		$rules = [
-			'name' => 'required|max:255|min:4',
-			'website' => 'required|url'
-		];
+        if ($project->developer_id != Auth::user()->id) {
+            abort(403);
+        }
 
-		$validation = Validator::make(Request::all(), $rules);
+        $rules = [
+            'name'    => 'required|max:255|min:4',
+            'website' => 'required|url',
+        ];
 
-		if($validation->fails())
-			return redirect()->back()->withInput()->withErrors($validation);
+        $validation = Validator::make(Request::all(), $rules);
 
-		$project->name = (Request::has('name') ? Request::get('name') : 'A Minecraft Client');
-		$project->website = (Request::has('website') ? Request::get('website') : env('APP_URL'));
-		$project->save();
+        if ($validation->fails()) {
+            return redirect()->back()->withInput()->withErrors($validation);
+        }
 
-		return redirect()->route('developer::project::capes', ['hash' => $hash]);
-	}
+        $project->name = (Request::has('name') ? Request::get('name') : 'A Minecraft Client');
+        $project->website = (Request::has('website') ? Request::get('website') : env('APP_URL'));
+        $project->save();
 
-	public function deleteProject($hash) {
-		$project = Projects::where('hash', $hash)->first();
-		$capes = Capes::where('project_id', $project->id)->get();
+        return redirect()->route('developer::project::capes', ['hash' => $hash]);
+    }
 
-		if($project->developer_id != Auth::user()->id)
-			abort(403);
+    public function deleteProject($hash)
+    {
+        $project = Projects::where('hash', $hash)->first();
+        $capes = Capes::where('project_id', $project->id)->get();
 
-		$dir = 'public/' . Auth::user()->email . '/' . $hash;
-		Storage::deleteDirectory($dir);
+        if ($project->developer_id != Auth::user()->id) {
+            abort(403);
+        }
 
-		$project->delete();
-		$capes->delete();
+        $dir = 'public/'.Auth::user()->email.'/'.$hash;
+        Storage::deleteDirectory($dir);
 
-		return redirect()->route('dashboard');
-	}
+        $project->delete();
+        $capes->delete();
+
+        return redirect()->route('dashboard');
+    }
 }
