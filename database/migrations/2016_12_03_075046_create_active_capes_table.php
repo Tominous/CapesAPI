@@ -16,7 +16,7 @@ class CreateActiveCapesTable extends Migration
         Schema::create('active_capes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('uuid');
-            $table->string('cape-hash');
+            $table->string('cape_hash');
             $table->boolean('active')->default(false);
             $table->timestamps();
             $table->softDeletes();

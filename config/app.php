@@ -226,6 +226,14 @@ return [
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
         'Ntrust'       => Klaravel\Ntrust\NtrustFacade::class,
+        'Projects'     => CapesAPI\Projects::class,
+        'Capes'        => CapesAPI\Capes::class,
+        'ActiveCapes'  => CapesAPI\ActiveCapes::class,
+        'User'         => CapesAPI\User::class,
+        'Carbon'       => Carbon\Carbon::class,
+        'Role'         => CapesAPI\Role::class,
+        'Permission'   => CapesAPI\Permission::class,
+        'Inspiring'    => Illuminate\Foundation\Inspiring::class,
     ],
 
 ];

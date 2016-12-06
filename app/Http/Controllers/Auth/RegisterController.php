@@ -6,6 +6,7 @@ use CapesAPI\Http\Controllers\Controller;
 use CapesAPI\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
+use Role;
 
 class RegisterController extends Controller
 {
@@ -64,10 +65,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
+        $user->roles()->attach(Role::where('name', 'unverified')->first()->id);
+        $user->save();
+
+        return $user;
     }
 }

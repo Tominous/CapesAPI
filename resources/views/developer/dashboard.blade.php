@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('breadcrumb')
+<li class="active">Dashboard</li>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -36,6 +40,24 @@
                 </div>
                 <div class="panel-body">
                 @if(count($projects) > 0)
+                    @foreach($projects as $project)
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-1">
+                                <h4>{{ $project->name }} <span class="badge">{{ Capes::where('project_id', $project->id)->count() }} Capes</span></h4>
+                            </div>
+                            <div class="col-md-2">
+                                <a type="button" href="{{ route('developer::project::capes', ['hash' => $project->hash]) }}" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                        @if(!$loop->last)
+                        <hr/>
+                        @endif
+                    @endforeach
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-4">
+                            {{ $projects->links() }}
+                        </div>
+                    </div>
                 @else
                     <h4>Awe. <i class="fa fa-frown-o" aria-hidden="true"></i> It looks like you don't have any projects yet. Why don't you <a href="{{ route('developer::project::showCreateProject') }}">create one</a>?</h4>
                 @endif

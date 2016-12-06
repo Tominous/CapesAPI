@@ -5,13 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="{{ asset('images/icon.png') }}" />
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/themes/yeti/bootstrap.min.css') }}" rel="stylesheet">
     
     <!-- Scripts -->
     <script>
@@ -22,6 +26,10 @@
     <script src="https://use.fontawesome.com/a551ad771b.js"></script>
 </head>
 <body>
+    <!-- 
+        May I ask why you're looking at this source code?
+        Honestly, it's nothing special. It's just HTML. You won't see anything important here.
+    -->
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -49,6 +57,18 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="{{ route('donate') }}"><i class="fa fa-heart-o" aria-hidden="true"></i> Donate <i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        </li>
+                        @if(Session::get('mojangUUID'))
+                        <li>
+                            <a href="{{ route('mojang::getLogout') }}">User Logout</a>
+                        </li>
+                        @else
+                        <li>
+                            <a href="{{ route('mojang::getLogin') }}">User Login</a>
+                        </li>
+                        @endif
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li>
@@ -70,6 +90,11 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    @role('admin')
+                                    <li><a href="{{ route('admin::dashboard') }}">Administration</a></li>
+                                    @endrole
+                                    <li><a href="{{ route('developer::dashboard') }}">Dashboard</a></li>
+                                    <li><a href="{{ route('api-docs') }}" target="_blank">Documentation</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
@@ -89,10 +114,19 @@
             </div>
         </nav>
 
+        @if(!Request::is('/'))
+        <div class="container">
+            <ol class="breadcrumb">
+            <li></li>
+            @yield('breadcrumb')
+            </ol>
+        </div>   
+        @endif
+
         @yield('content')
 
-        <div class="footer">
-            <div class="container">
+        <div class="container">
+            <div class="text-muted">
                 <div class="copyright">
                     &copy; Copyright <a href="https://halfpetal.com" target="_blank">Halfpetal</a> {{ date('Y') }}. All rights reserved. 
                 </div>
@@ -101,6 +135,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

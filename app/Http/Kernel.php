@@ -33,7 +33,7 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            'throttle:60,1',
+            //'throttle:60,1',
             'bindings',
         ],
     ];
@@ -55,5 +55,6 @@ class Kernel extends HttpKernel
         'role'       => \Klaravel\Ntrust\Middleware\NtrustRole::class,
         'permission' => \Klaravel\Ntrust\Middleware\NtrustPermission::class,
         'ability'    => \Klaravel\Ntrust\Middleware\NtrustAbility::class,
+        'checkRole'  => \CapesAPI\Http\Middleware\CheckUserRole::class,
     ];
 }

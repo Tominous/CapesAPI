@@ -17,6 +17,7 @@ html {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+    padding-top: 10px;
 
 	.copyright {
 		text-align: left;
@@ -25,5 +26,63 @@ html {
 	.social {
 		text-align: right;
 		margin-bottom: 10px;
+	}
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.vcenter {
+    display: flex;
+    align-items: center;
+}
+
+.flex-grid {
+    display:flex;
+
+    .cell {
+        flex: 1;
+    }
+}
+
+.breadcrumb {
+	background: rgba(245, 245, 245, 0.82);
+	border: 1px solid rgba(245, 245, 245, 1);
+	border-radius: 4px;
+	display: block;
+	li {
+		font-size: 14px;
+	}
+	a {
+		color: rgba(66, 139, 202, 1);
+		&:hover {
+			color: rgba(42, 100, 150, 1);
+		}
+	}
+	>.active {
+		color: rgba(153, 153, 153, 1);
+	}
+	>li+li {
+		&:before {
+			color: rgba(204, 204, 204, 1);
+			content: "\2771\00a0";
+		}
 	}
 }

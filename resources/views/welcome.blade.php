@@ -1,95 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
+<div class="container">
+    <div class="jumbotron">
+        <h1>We're Live</h1>
+        <p>
+            That's right, Capes API is live! For now we'll be manually verifying all the developers to help control the amount of calls made to our
+            servers to help us determine our future updates.
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+            <h2>Donation Goal <small>$0/$250</small></h2>
+            <div class="progress progress-striped active">
+            <div class="progress-bar" style="width: 0%"></div>
+            </div>
+        </p>
+        <p>
+            <a href="{{ route('donate') }}" class="btn btn-success">Support Capes API</a>
+            <a href="{{ route('mojang::getLogin') }}" class="btn btn-primary">User Login</a>
+            <a href="{{ route('register') }}" class="btn btn-primary">Developer Registration</a>
+        </p>
+    </div>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Some Statistics</h3>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="panel-body">
+                    <h4>Total Registered Users <span class="badge">{{ User::count() }}</span></h4>
+                    <h4>Total Projects <span class="badge">{{ Projects::count() }}</span></h4>
+                    <h4>Total Capes <span class="badge">{{ Capes::count() }}</span></h4>
+                    <h4>Total Capes Active <span class="badge">{{ ActiveCapes::where('active', true)->count() }}</span></h4>
+                    <h4>Total Capes Given <span class="badge">{{ ActiveCapes::count() }}</span></h4>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+        <div class="col-md-8">
+            <div class="alert alert-warning">
+                <strong>Attention!</strong> CapesAPI is in beta and therefore may be unstable at times.
+                If you have any issues please email us <a href="http://www.google.com/recaptcha/mailhide/d?k=01VVUrD_7L5zAo1XiPALsJMQ==&amp;c=ThIU2EkSlNUvI0DWq6theIwKkwDd1SLCLrEaF6LvnAE=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01VVUrD_7L5zAo1XiPALsJMQ\x3d\x3d\x26c\x3dThIU2EkSlNUvI0DWq6theIwKkwDd1SLCLrEaF6LvnAE\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">h...@halfpetal.com</a>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">About CapesAPI</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Capes API is a product created by Halfpetal and the WiZARDHAX crew for Minecraft hacked client developers.</p>
+                    <p>
+                        The issue we've seen is that every client has a cape, but you have to be on that client to see that cape. We're hoping
+                        to help resolve that issue by giving developers a central location to store their cape data along with managing the users
+                        that use their capes.
+                    </p>
+                    <p>
+                        Also, it gives your users the ability to log in and select which cape they want to use.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

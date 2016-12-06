@@ -18,7 +18,6 @@ class CreateCapesTable extends Migration
             $table->integer('project_id')->unsigned();
             $table->string('hash');
             $table->string('name');
-            $table->string('template');
             $table->timestamps();
             $table->softDeletes();
 
