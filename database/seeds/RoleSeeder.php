@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Role;
 
 class RoleSeeder extends Seeder
 {
@@ -12,10 +11,10 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $a = new Role();
-        $d = new Role();
-        $b = new Role();
-        $u = new Role();
+        $a = new CapesAPI\Role();
+        $d = new CapesAPI\Role();
+        $b = new CapesAPI\Role();
+        $u = new CapesAPI\Role();
 
         $a->name = 'admin';
         $d->name = 'developer';
