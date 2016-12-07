@@ -76,7 +76,6 @@ class ProjectController extends Controller
     public function deleteProject($hash)
     {
         $project = Projects::where('hash', $hash)->first();
-        $capes = Capes::where('project_id', $project->id)->get();
 
         if ($project->developer_id != Auth::user()->id) {
             abort(403);
@@ -86,7 +85,7 @@ class ProjectController extends Controller
         Storage::deleteDirectory($dir);
 
         $project->delete();
-        $capes->delete();
+        Capes::where('project_id', $project->id)->delete();
 
         return redirect()->route('dashboard');
     }
