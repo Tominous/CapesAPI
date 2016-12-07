@@ -87,6 +87,6 @@ class ProjectController extends Controller
         $project->delete();
         Capes::where('project_id', $project->id)->delete();
 
-        return redirect()->route('dashboard');
+        return redirect()->route('developer::dashboard');
     }
 }
