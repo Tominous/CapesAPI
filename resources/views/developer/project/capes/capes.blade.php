@@ -93,11 +93,11 @@
                             <button type="button" class="btn btn-default" data-dismiss="modal">Wait a second...</button>
                             <button type="button" class="btn btn-danger" 
                                 onclick="event.preventDefault();
-                                            document.getElementById('deleteProject').submit();">
+                                         document.getElementById('deleteProjectForm').submit();">
                                 Yes I'm sure.
                             </button>
 
-                            <form id="deleteProject" action="{{ route('developer::project::deleteProject', ['hash' => $project->hash]) }}" method="POST" style="display:none;">
+                            <form id="deleteProjectForm" action="{{ route('developer::project::deleteProject', ['hash' => $project->hash]) }}" method="POST" style="display:none;">
                                 {{ method_field('DELETE') }}
                                 {{ csrf_field() }}
                             </form>
