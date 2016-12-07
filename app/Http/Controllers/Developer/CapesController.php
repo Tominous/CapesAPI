@@ -66,8 +66,10 @@ class CapesController extends Controller
                 $capeHash_db = Capes::where('hash', $capeHash)->first();
             } while (!empty($capeHash_db));
 
+            $project = Projects::where('hash', $hash)->first();
+
             Capes::create([
-                'project_id' => Auth::user()->id,
+                'project_id' => $project->id,
                 'hash'       => $capeHash,
                 'name'       => ($request->has('name') ? $request->get('name') : 'An Awesome Cape'),
             ]);
