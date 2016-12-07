@@ -12,9 +12,9 @@ class ActiveCapes extends Model
     protected $table = 'active_capes';
     protected $appends = ['username'];
     protected $fillable = [
-    	'uuid',
-    	'cape_hash',
-    	'active',
+        'uuid',
+        'cape_hash',
+        'active',
     ];
 
     /**

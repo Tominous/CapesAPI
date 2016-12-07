@@ -15,11 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('banned', function() {
+Route::get('banned', function () {
     return 'You have been banned.';
 })->name('banned');
 
-Route::get('unverified', function() {
+Route::get('unverified', function () {
     return 'You are still not verified.';
 })->name('unverified');
 
@@ -34,10 +34,10 @@ Route::get('donate', function () {
 Auth::routes();
 
 Route::group([
-    'prefix' => 'mojang',
-    'as'     => 'mojang::',
+    'prefix'    => 'mojang',
+    'as'        => 'mojang::',
     'namespace' => 'Mojang',
-], function() {
+], function () {
     Route::get('login', 'AuthController@showLogin')->name('getLogin');
     Route::post('login', 'AuthController@createSession')->name('postLogin');
     Route::get('logout', 'AuthController@destroySession')->name('getLogout');
@@ -46,7 +46,7 @@ Route::group([
     Route::delete('usercp/capes', 'AuthController@disableAllCapes')->name('disableAllCapes');
 });
 
-Route::group([ 
+Route::group([
     'prefix'     => 'developer',
     'as'         => 'developer::',
     'namespace'  => 'Developer',
@@ -69,7 +69,7 @@ Route::group([
 
         Route::delete('{hash}', 'ProjectController@deleteProject')->name('deleteProject')->where('hash', '[A-Za-z0-9]+');
         Route::put('{hash}', 'ProjectController@editProject')->name('editProject')->where('hash', '[A-Za-z0-9]+');
-        
+
         Route::get('{hash}/capes', 'CapesController@getCapes')->name('capes')->where('hash', '[A-Za-z0-9]+');
 
         Route::get('{hash}/capes/create', 'CapesController@showCreateCape')->name('showCreateCape')->where('hash', '[A-Za-z0-9]+');

@@ -17,14 +17,14 @@ Route::get('ping', function () {
 })->name('api::ping');
 
 Route::group([
-    'prefix' => 'v1',
-    'as' => 'api::v1::',
-    'namespace' => 'API\v1'
-], function() {
+    'prefix'    => 'v1',
+    'as'        => 'api::v1::',
+    'namespace' => 'API\v1',
+], function () {
     Route::group([
         'prefix' => '{uuid}',
-        'as' => 'user::'
-    ], function() {
+        'as'     => 'user::',
+    ], function () {
         Route::get('getCape', 'UserController@getCape')->name('getCape');
         Route::post('addCape', 'UserController@addCape')->name('addCape');
         Route::get('hasCape/{capeHash}', 'UserController@hasCape')->where('capeHash', '[A-Za-z0-9]+')->name('hasCape');

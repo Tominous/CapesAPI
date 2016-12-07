@@ -12,10 +12,10 @@ class Projects extends Model
     protected $table = 'projects';
 
     protected $fillable = [
-    	'developer_id',
-    	'hash',
-    	'name',
-    	'website'
+        'developer_id',
+        'hash',
+        'name',
+        'website',
     ];
 
     /**
