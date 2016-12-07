@@ -71,9 +71,6 @@
                         @endif
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li>
-                                <a href="testing">User Login</a>
-                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdlgwn-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Developers <span class="caret"></span>
