@@ -5,6 +5,7 @@ namespace CapesAPI\Http\Controllers\Developer;
 use Auth;
 use CapesAPI\Http\Controllers\Controller;
 use CapesAPI\Projects;
+use Capes;
 use Request;
 use Validator;
 
