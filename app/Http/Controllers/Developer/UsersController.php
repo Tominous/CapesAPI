@@ -72,7 +72,7 @@ class UsersController extends Controller
         }
 
         $rules = [
-            'name' => 'required|max:255|min:2',
+            'name' => 'required|max:16|min:2',
         ];
 
         $validation = Validator::make($request->all(), $rules);
@@ -85,6 +85,10 @@ class UsersController extends Controller
             if ($res->getStatusCode() == 200) {
                 $body = json_decode($res->getBody());
                 $uuid = $body->id;
+
+                if($uuid == null) {
+                    redirect()->back();
+                }
 
                 ActiveCapes::create([
                     'uuid'      => $uuid,
