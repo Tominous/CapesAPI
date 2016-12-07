@@ -5,6 +5,7 @@ namespace CapesAPI\Http\Middleware;
 use Closure;
 use Projects;
 use User;
+use Auth;
 
 class IsProjectOwner
 {
