@@ -13,7 +13,8 @@ use Validator;
 
 class UsersController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('checkProjectOwner');
     }
 
@@ -90,7 +91,7 @@ class UsersController extends Controller
                 $body = json_decode($res->getBody());
                 $uuid = $body->id;
 
-                if($uuid == null) {
+                if ($uuid == null) {
                     redirect()->back();
                 }
 
