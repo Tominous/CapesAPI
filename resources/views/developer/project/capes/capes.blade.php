@@ -139,7 +139,7 @@
                                     <div class="modal-body">
                                         <h3>{{ $cape->name }} Information</h3>
                                         <h4>Cape ID: <code> {{ $cape->hash }} </code><br/></h4> 
-                                        <h4>Users: {{ ActiveCapes::where('cape_hash')->count() }} <br/></h4>
+                                        <h4>Users: {{ ActiveCapes::where('cape_hash', $cape->hash)->count() }} <br/></h4>
                                         <h4>Created: {{ Carbon::parse($cape->created_at)->toDayDateTimeString() }}</h4>
                                     </div>
                                 </div>
