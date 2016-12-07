@@ -64,7 +64,7 @@ Route::group([
         Route::post('create', 'ProjectController@createProject')->name('createProject');
 
         Route::get('{hash}', function () {
-            return redirect()->route('developer::project::capes')->with('hash');
+            return redirect()->route('developer::project::capes', ['hash' => $hash]);
         })->where('hash', '[A-Za-z0-9]+');
 
         Route::delete('{hash}', 'ProjectController@deleteProject')->name('deleteProject')->where('hash', '[A-Za-z0-9]+');
