@@ -3,16 +3,17 @@
 namespace CapesAPI\Http\Controllers\Developer;
 
 use Auth;
+use Capes;
 use CapesAPI\Http\Controllers\Controller;
 use CapesAPI\Projects;
-use Capes;
 use Request;
-use Validator;
 use Storage;
+use Validator;
 
 class ProjectController extends Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('checkProjectOwner');
     }
 
