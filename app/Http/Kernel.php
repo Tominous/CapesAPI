@@ -56,5 +56,6 @@ class Kernel extends HttpKernel
         'permission' => \Klaravel\Ntrust\Middleware\NtrustPermission::class,
         'ability'    => \Klaravel\Ntrust\Middleware\NtrustAbility::class,
         'checkRole'  => \CapesAPI\Http\Middleware\CheckUserRole::class,
+        'checkProjectOwner' => \CapesAPI\Http\Middleware\IsProjectOwner::class,
     ];
 }

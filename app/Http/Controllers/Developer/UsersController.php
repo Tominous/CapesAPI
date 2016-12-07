@@ -13,6 +13,10 @@ use Validator;
 
 class UsersController extends Controller
 {
+    public function __construct() {
+        $this->middleware('checkProjectOwner');
+    }
+
     public function showUsers($hash, $capeHash)
     {
         $project = Projects::where('hash', $hash)->first();

@@ -12,6 +12,10 @@ use Storage;
 
 class ProjectController extends Controller
 {
+    public function __construct() {
+        $this->middleware('checkProjectOwner');
+    }
+
     public function showCreateProject()
     {
         return view('developer.project.create');

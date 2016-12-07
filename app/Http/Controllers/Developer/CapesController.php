@@ -12,6 +12,10 @@ use Validator;
 
 class CapesController extends Controller
 {
+    public function __construct() {
+        $this->middleware('checkProjectOwner');
+    }
+
     public function getCapes($hash)
     {
         $project = Projects::where('hash', $hash)->first();
