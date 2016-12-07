@@ -72,7 +72,7 @@ class UsersController extends Controller
         }
 
         $rules = [
-            'name' => 'required|max:16|min:2',
+            'name' => 'required|max:16|min:1',
         ];
 
         $validation = Validator::make($request->all(), $rules);
