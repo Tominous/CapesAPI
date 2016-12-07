@@ -15,7 +15,7 @@
                     <div class="panel-title">Create New Cape</div>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ route('developer::project::createCape', ['hash' => $hash]) }}">
+                    <form class="form-horizontal" id="createCapeForm" role="form" method="POST" enctype="multipart/form-data" action="{{ route('developer::project::createCape', ['hash' => $hash]) }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -51,7 +51,8 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" id="createCapeButton" class="btn btn-primary" onclick="document.getElementById('createCapeButton').setAttribute('disabled', 'disabled')">
+                                <button type="submit" id="createCapeButton" class="btn btn-primary" onclick="document.getElementById('createCapeButton').setAttribute('disabled', 'disabled');
+                                                                                                             document.getElementById('createCapeForm').submit();">
                                     Create Cape
                                 </button>
                             </div>
