@@ -90,7 +90,13 @@ class ProjectController extends Controller
         Storage::deleteDirectory($dir);
 
         $project->delete();
-        Capes::where('project_id', $project->id)->delete();
+        $capes = Capes::where('project_id', $project->id)->get();
+
+        foreach($capes as $cape) {
+            ActiveCapes::where('cape_hash', $cape->hash)->delete();
+        }
+
+        $capes->delete();
 
         return redirect()->route('developer::dashboard');
     }

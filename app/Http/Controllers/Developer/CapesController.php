@@ -39,6 +39,8 @@ class CapesController extends Controller
         ])->first();
 
         $dir = 'public/'.Auth::user()->email.'/'.$hash.'/'.$capeHash;
+        
+        ActiveCapes::where('cape_hash', $cape->hash)->delete();
         Storage::deleteDirectory($dir);
         $cape->delete();
 
