@@ -14,7 +14,7 @@ class ProjectController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('checkProjectOwner');
+        $this->middleware('checkProjectOwner', ['except' => ['showCreateProject', 'createProject']]);
     }
 
     public function showCreateProject()
