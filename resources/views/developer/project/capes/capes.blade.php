@@ -156,7 +156,7 @@
                                         You're about to delete the cape "{{ $cape->name }}". That means no one will be able to use it, and it will 404 any calls to the cape and we will not be able to recover the files either. Are you absolutely sure?
                                         <br/><br/>
                                         <h3>Some Statistics</h3>
-                                        Users: {{ ActiveCapes::where('cape_hash')->count() }} <br/>
+                                        Users: {{ ActiveCapes::where('cape_hash', $cape->hash)->count() }} <br/>
                                         Created: {{ Carbon::parse($cape->created_at)->toDayDateTimeString() }}
                                     </div>
                                     <div class="modal-footer">
