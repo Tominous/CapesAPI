@@ -61,9 +61,20 @@
                             <a href="{{ route('donate') }}"><i class="fa fa-heart-o" aria-hidden="true"></i> Donate <i class="fa fa-heart-o" aria-hidden="true"></i></a>
                         </li>
                         @if(Session::get('mojangUUID'))
-                        <li>
-                            <a href="{{ route('mojang::getLogout') }}">User Logout</a>
+                        <li class="dropdown">
+                            <a href="#" class="dropdlgwn-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            {{ Session::get('mojangUsername') }} <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ route('mojang::getUserCP') }}">User Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('mojang::getLogout') }}">User Logout</a>
+                                </li>
+                            </ul>
                         </li>
+                        
                         @else
                         <li>
                             <a href="{{ route('mojang::getLogin') }}">User Login</a>
