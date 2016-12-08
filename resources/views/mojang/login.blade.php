@@ -20,10 +20,11 @@
                         We will always have people complaining and say that we are stealing your username and password.
                         The best we can do besides assuring you that your username and password are sent directly to Mojang,
                         is to remind you that the CapesAPI system is <a href="https://github.com/halfpetal/CapesAPI" target="_blank">
-                        open-source on GitHub</a>.
+                        open-source on GitHub</a> and the exact line where your information is used is <a href="https://github.com/halfpetal/CapesAPI/blob/master/app/Http/Controllers/Mojang/AuthController.php#L54"
+                        target="_blank">here</a>.
                     </p>
                     <p>
-                        If you're still curious or have no programming knowledge, here's the entire processed explained in steps...
+                        If you're still curious or have no programming knowledge, here's the entire process explained in steps...
                         <ol>
                             <li>You type in your username/password</li>
                             <li>You submit the information</li>

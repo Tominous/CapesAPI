@@ -52,7 +52,7 @@
                         that use their capes.
                     </p>
                     <p>
-                        Also, it gives your users the ability to log in and select which cape they want to use.
+                        It also gives your users the ability to log in and select which cape they want to use.
                     </p>
                 </div>
             </div>
