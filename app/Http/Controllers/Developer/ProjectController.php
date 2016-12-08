@@ -9,6 +9,7 @@ use CapesAPI\Projects;
 use Request;
 use Storage;
 use Validator;
+use ActiveCapes;
 
 class ProjectController extends Controller
 {

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Projects;
 use Storage;
 use Validator;
+use ActiveCapes;
 
 class CapesController extends Controller
 {
