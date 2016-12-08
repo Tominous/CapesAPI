@@ -97,7 +97,7 @@ class ProjectController extends Controller
             ActiveCapes::where('cape_hash', $cape->hash)->delete();
         }
 
-        $capes->delete();
+        Capes::where('project_id', $project->id)->delete();
 
         return redirect()->route('developer::dashboard');
     }
