@@ -92,7 +92,7 @@ class AuthController extends Controller
             'active' => true,
         ])->get();
 
-        foreach ($capes as $capes) {
+        foreach ($capes as $cape) {
             $cape->active = false;
             $cape->save();
         }
