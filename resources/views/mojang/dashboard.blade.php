@@ -52,7 +52,7 @@
                     <h3 class="panel-title">Cape Manager</h3>
                 </div>
                 <div class="panel-body">
-                @if(count($capes) > 0)
+                @if(count($capes))
                 @foreach($capes as $cape)
                     @php 
                         $cape = Capes::where('hash', $cape->cape_hash)->first();
