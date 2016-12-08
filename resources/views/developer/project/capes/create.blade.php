@@ -75,7 +75,7 @@
                     <p>
                         Just name your cape, select your cape PNG, and click "Create Cape". There you go! You just created a cape!
                         <br/>
-                        It's probably a good idea to follow our cape creation guidelines <a href"http://docs.halfpetal.com/CapesAPI/Creating-Capes"
+                        It's probably a good idea to follow our cape creation guidelines <a href="http://docs.halfpetal.com/CapesAPI/Creating-Capes"
                         target="_blank">here</a> to make sure every cape looks similar across clients.
                     </p>
                 </div>
