@@ -2,6 +2,7 @@
 
 namespace CapesAPI\Http\Controllers\Developer;
 
+use ActiveCapes;
 use Auth;
 use Capes;
 use CapesAPI\Http\Controllers\Controller;
@@ -9,7 +10,6 @@ use Illuminate\Http\Request;
 use Projects;
 use Storage;
 use Validator;
-use ActiveCapes;
 
 class CapesController extends Controller
 {
@@ -40,7 +40,7 @@ class CapesController extends Controller
         ])->first();
 
         $dir = 'public/'.Auth::user()->email.'/'.$hash.'/'.$capeHash;
-        
+
         ActiveCapes::where('cape_hash', $cape->hash)->delete();
         Storage::deleteDirectory($dir);
         $cape->delete();
