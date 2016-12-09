@@ -42,7 +42,7 @@ class UserController extends Controller
 
         $path = storage_path('app/public/'.$user->email.'/'.$project->hash.'/'.$cape->hash.'/cape.png');
 
-        return response()->download($path);
+        return response()->file($path);
     }
 
     public function hasCape($uuid, $capeHash)
