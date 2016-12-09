@@ -42,7 +42,7 @@ class UserController extends Controller
 
         $path = storage_path('app/public/'.$user->email.'/'.$project->hash.'/'.$cape->hash.'/cape.png');
         $headers = [
-            'Content-Type' => 'image/png'
+            'Content-Type' => 'image/png',
         ];
 
         return response()->file($path, $headers);
