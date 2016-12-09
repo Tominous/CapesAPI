@@ -2,6 +2,7 @@
 
 namespace CapesAPI\Http\Controllers\Developer;
 
+use ActiveCapes;
 use Auth;
 use Capes;
 use CapesAPI\Http\Controllers\Controller;
@@ -9,7 +10,6 @@ use CapesAPI\Projects;
 use Request;
 use Storage;
 use Validator;
-use ActiveCapes;
 
 class ProjectController extends Controller
 {
@@ -93,7 +93,7 @@ class ProjectController extends Controller
         $project->delete();
         $capes = Capes::where('project_id', $project->id)->get();
 
-        foreach($capes as $cape) {
+        foreach ($capes as $cape) {
             ActiveCapes::where('cape_hash', $cape->hash)->delete();
         }
 
