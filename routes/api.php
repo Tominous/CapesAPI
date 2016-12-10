@@ -25,7 +25,7 @@ Route::group([
         'prefix' => '{uuid}',
         'as'     => 'user::',
     ], function () {
-        Route::get('getCape', 'UserController@getCape')->name('getCape');
+        Route::get('getCape/cape.png', 'UserController@getCape')->name('getCape');
         Route::post('addCape', 'UserController@addCape')->name('addCape');
         Route::get('hasCape/{capeHash}', 'UserController@hasCape')->where('capeHash', '[A-Za-z0-9]+')->name('hasCape');
     });
