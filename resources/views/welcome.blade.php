@@ -34,6 +34,7 @@
                     <h4>Total Capes Given <span class="badge">{{ ActiveCapes::count() }}</span></h4>
                 </div>
             </div>
+            @include('includes.ad')
         </div>
         <div class="col-md-8">
             <div class="alert alert-warning">
