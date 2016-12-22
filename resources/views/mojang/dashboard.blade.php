@@ -8,7 +8,6 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            @include('includes.ad')
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title">Capes Dashboard</h3>
@@ -92,6 +91,14 @@
                         It looks like you don't have any capes that are inactive. 
                     </h4>
                 @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    @include('includes.ad')
+                </div>
+                <div class="col-md-6">
+                    @include('includes.ad')
                 </div>
             </div>
         </div>
