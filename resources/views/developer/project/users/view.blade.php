@@ -72,6 +72,8 @@
                 @endif
                 </div>
             </div>
+            
+            @include('includes.ad')
         </div>
         <div class="col-md-4">
             <div class="panel panel-info">
