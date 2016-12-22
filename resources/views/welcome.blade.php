@@ -42,6 +42,7 @@
                 If you have any issues please email us <a href="http://www.google.com/recaptcha/mailhide/d?k=01VVUrD_7L5zAo1XiPALsJMQ==&amp;c=ThIU2EkSlNUvI0DWq6theIwKkwDd1SLCLrEaF6LvnAE=" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\x3d01VVUrD_7L5zAo1XiPALsJMQ\x3d\x3d\x26c\x3dThIU2EkSlNUvI0DWq6theIwKkwDd1SLCLrEaF6LvnAE\x3d', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">h...@halfpetal.com</a>
             </div>
             @include('includes.ad')
+            <br/>
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">About CapesAPI</h3>
