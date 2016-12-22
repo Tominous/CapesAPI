@@ -93,6 +93,7 @@
                     </form>
                 </div>
             </div>
+            @include('includes.ad')
         </div>
     </div>
 </div>
