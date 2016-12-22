@@ -25,6 +25,8 @@
                     <a type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteProject">Delete Project</a>
                 </div>
             </div>
+            
+            @include('includes.ad')
 
             <div class="modal fade" id="editProject" tabindex="-1" role="dialog" aria-labelledby="editProject" aria-hidden="true">
                 <div class="modal-dialog">
