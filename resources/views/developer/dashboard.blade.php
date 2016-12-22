@@ -64,6 +64,7 @@
                 </div>
             </div>
             @include('includes.ad')
+            @include('includes.ad')
         </div>
     </div>
 </div>
