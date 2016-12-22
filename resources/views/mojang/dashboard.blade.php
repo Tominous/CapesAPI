@@ -8,6 +8,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
+            @include('includes.ad')
             <div class="panel panel-info">
                 <div class="panel-heading">
                     <h3 class="panel-title">Capes Dashboard</h3>
