@@ -16,11 +16,11 @@ Route::get('/', function () {
 });
 
 Route::get('banned', function () {
-    return 'You have been banned.<br/>What the hell did you do?';
+    return view('roles.banned');
 })->name('banned');
 
 Route::get('unverified', function () {
-    return 'You are still not verified.<br/>Please wait for an admin to verify you.';
+    return view('roles.unverified');
 })->name('unverified');
 
 Route::get('docs', function () {
