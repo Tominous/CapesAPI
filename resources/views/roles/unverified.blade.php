@@ -56,7 +56,7 @@
                   <br/>
                   If you have not donated, it could take 20-30 days (or more) to verify your account. If you would like to speed up
                   that process, please considering <a href="{{ route('donate') }}" target="_blank">donating to CapesAPI</a>. Minimum
-                  of $5 is required for shorter verification.
+                  of $5 is required for shorter verification time.
                 </div>
             </div>
         </div>
