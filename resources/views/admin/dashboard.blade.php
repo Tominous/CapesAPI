@@ -39,7 +39,7 @@
 
                         <div class="row vcenter">
                             <div class="col-md-7 col-md-offset-1">
-                                <h4>{{ $user->name }} <span class="badge">{{ $user->email }}</span></h4>
+                                <h4>{{ $user->name }} <span class="badge">{{ $user->email }}</span> <small>{{ Carbon::parse($user->created_at)->diffForHumans() }}</h4>
                             </div>
                             <div class="col-md-3">
                                 <a type="button" class="btn btn-sm btn-primary" 
