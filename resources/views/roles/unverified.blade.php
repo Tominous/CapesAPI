@@ -38,7 +38,7 @@
             
             .text {
                 font-weight: 400;
-                margin: 10px;
+                padding: 25px;
             }
         </style>
     </head>
@@ -52,7 +52,7 @@
                   If you've already donated a minimum of $5 please hold on. It could take a day or two as PayPal sometimes takes
                   a while to clear and we're doing this manually for now. If it's been more than 4 days, please post an issue 
                   <a href="https://github.com/halfpetal/Support/issues" target="_blank">here</a>. Thank you.
-                  <br/>
+                  <br/><br/>
                   If you have not donated, it could take 20-30 days (or more) to verify your account. If you would like to speed up
                   that process, please considering <a href="{{ route('donate') }}" target="_blank">donating to CapesAPI</a>. Minimum
                   of $5 is required for shorter verification time.
