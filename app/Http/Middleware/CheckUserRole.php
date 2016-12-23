@@ -21,7 +21,7 @@ class CheckUserRole
                 return redirect()->route('banned');
             }
 
-            if ($request->user()->hasRole('unverified') && $request->path() !== 'unverified') {
+            if ($request->user()->hasRole('unverified') && ($request->path() === '/' || $request->path() !== 'unverified')) {
                 return redirect()->route('unverified');
             }
         }
