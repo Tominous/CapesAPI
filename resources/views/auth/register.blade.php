@@ -4,6 +4,15 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-danger" role="alert">
+            <h4>Before you register...</h4>
+            please note that your account can take 20+ days to be verified. However, if you want to speed up this process
+            and get verified in a day or two consider <a href="{{ route('donate') }}" target="_blank">donating a minimum of $5</a> to CapesAPI
+            with the email address your registering with.
+            <br/>
+            If the email is not the same as your PayPal email, please mention that in the comments with the email address
+            and name your registered with.
+            </div>
             <div class="panel panel-default">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body">
