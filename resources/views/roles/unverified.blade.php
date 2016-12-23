@@ -3,7 +3,7 @@
     <head>
         <title>Account Unverified.</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,400" rel="stylesheet" type="text/css">
 
         <style>
             html, body {
@@ -35,6 +35,11 @@
                 font-size: 72px;
                 margin-bottom: 40px;
             }
+            
+            .text {
+                font-weight: 400;
+                margin: 10px;
+            }
         </style>
     </head>
     <body>
@@ -44,7 +49,7 @@
                   Unverified.
                   <br/><br/>
                 </div>
-                <div>
+                <div class="text">
                   If you've already donated a minimum of $5 please hold on. It could take a day or two as PayPal sometimes takes
                   a while to clear and we're doing this manually for now. If it's been more than 4 days, please post an issue 
                   <a href="https://github.com/halfpetal/Support/issues" target="_blank">here</a>. Thank you.
