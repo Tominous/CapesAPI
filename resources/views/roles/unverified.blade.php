@@ -43,6 +43,8 @@
                 <div class="title">
                   Unverified.
                   <br/><br/>
+                </div>
+                <div>
                   If you've already donated a minimum of $5 please hold on. It could take a day or two as PayPal sometimes takes
                   a while to clear and we're doing this manually for now. If it's been more than 4 days, please post an issue 
                   <a href="https://github.com/halfpetal/Support/issues" target="_blank">here</a>. Thank you.
