@@ -14,8 +14,8 @@
     <title>{{ config('app.name', 'Laravel') }} - Making Minecraft Capes Easier for Developers and Players</title>
     
     <!-- Meta Tags -->
-    <meta name="description" content="Capes API is a product by Halfpetal built to allow Minecraft client developers to give custom capes to users and allows users to manage the capes they own.">
-    <meta name="keywords" content="minecraft, mojang, hacked client, client developer, minecraft capes, cape api, halfpetal, wizardhax, api, capes">
+    <meta name="description" content="Capes API is a product by Halfpetal built to allow Minecraft client, Forge, and mod developers to give custom capes to users and allows users to manage the capes they own.">
+    <meta name="keywords" content="minecraft, mojang, forge, mod, forgemods, modification, hacked client, client developer, minecraft capes, cape api, halfpetal, wizardhax, api, capes">
     <meta name="robots" content="index, nofollow">
     <meta name="revisit-after" content="30 days">
     
