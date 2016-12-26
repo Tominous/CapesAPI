@@ -44,12 +44,12 @@
                             <div class="col-md-3">
                                 <a type="button" class="btn btn-sm btn-primary" 
                                     onclick="event.preventDefault();
-                                                document.getElementById('make-dev-form').submit();">
+                                                document.getElementById('make-{{ $user->id }}-dev-form').submit();">
                                     Verify Dev
                                 </a>
                                 <a type="button" href="" class="btn btn-sm btn-danger" disabled="disabled">Ban User</a>
 
-                                <form id="make-dev-form" action="{{ route('admin::makeDeveloper') }}" method="POST" style="display: none;">
+                                <form id="make-{{ $user->id }}-dev-form" action="{{ route('admin::makeDeveloper') }}" method="POST" style="display: none;">
                                     {{ method_field('POST') }}
                                     {{ csrf_field() }}
                                     <input type="text" value="{{ $user->email }}" name="user_email" id="user_email" />
