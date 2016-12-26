@@ -48,14 +48,14 @@
                     <h3 class="panel-title">About CapesAPI</h3>
                 </div>
                 <div class="panel-body">
-                    <p>Capes API is a product created by Halfpetal and the WiZARDHAX crew for Minecraft hacked client developers.</p>
+                    <p>Capes API is a product created by Halfpetal and the WiZARDHAX crew for Minecraft hacked client or Forge mod developers.</p>
                     <p>
                         The issue we've seen is that every client has a cape, but you have to be on that client to see that cape. We're hoping
                         to help resolve that issue by giving developers a central location to store their cape data along with managing the users
                         that use their capes.
                     </p>
                     <p>
-                        It also gives your users the ability to log in and select which cape they want to use.
+                        It also gives your users the ability to log in and select which cape they want to use with their Mojang account.
                     </p>
                 </div>
             </div>
