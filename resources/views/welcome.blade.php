@@ -8,9 +8,9 @@
             That's right, Capes API is live! For now we'll be manually verifying all the developers to help control the amount of calls made to our
             servers to help us determine our future updates.
 
-            <h2>Donation Goal <small>${{ env('DONATE_AMOUNT') }}/${{ env('DONATE_GOAL') }}</small></h2>
+            <h2>Donation Goal <small>${{ env('DONATE_AMOUNT', 0) }}/${{ env('DONATE_GOAL', 100) }}</small></h2>
             <div class="progress progress-striped active">
-            <div class="progress-bar" style="width: {{ env('DONATE_AMOUNT') }}%"></div>
+            <div class="progress-bar" style="width: {{ env('DONATE_AMOUNT', 0) }}%"></div>
             </div>
         </p>
         <p>
