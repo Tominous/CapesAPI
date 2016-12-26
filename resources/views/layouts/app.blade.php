@@ -10,9 +10,15 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    
+    <title>{{ config('app.name', 'Laravel') }} - Making Minecraft Capes Easier for Developers and Players</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Capes API is a product by Halfpetal built to allow Minecraft client developers to give custom capes to users and allows users to manage the capes they own.">
+    <meta name="keywords" content="minecraft, mojang, hacked client, client developer, minecraft capes, cape api, halfpetal, wizardhax, api, capes">
+    <meta name="robots" content="index, nofollow">
+    <meta name="revisit-after" content="30 days">
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/themes/yeti/bootstrap.min.css') }}" rel="stylesheet">
