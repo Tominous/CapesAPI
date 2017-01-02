@@ -52,7 +52,7 @@ class AuthController extends Controller
         }
 
         try {
-            $codeEntry = MojangLoginCode::where('code', $request->get('mcAuthCode'))->first();
+            $codeEntry = MojangLoginCode::where('code', $request->get('mcAuthCode'))->firstOrFail();
 
             if($codeEntry->used) {
                 return redirect()->back()->withErrors([
