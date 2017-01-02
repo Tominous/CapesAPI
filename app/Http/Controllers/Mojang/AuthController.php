@@ -5,6 +5,8 @@ namespace CapesAPI\Http\Controllers\Mojang;
 use ActiveCapes;
 use CapesAPI\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use MojangLoginCode;
 use Navarr\MinecraftAPI\Exception\BadLoginException;
 use Navarr\MinecraftAPI\Exception\BasicException;
 use Navarr\MinecraftAPI\Exception\MigrationException;
@@ -15,7 +17,7 @@ class AuthController extends Controller
 {
     public function showLogin(Request $request)
     {
-        if ($request->session()->has('mojangAccessToken')) {
+        if ($request->session()->has('mojangAccessCode')) {
             return redirect()->route('mojang::getUserCP');
         } else {
             return view('mojang.login');
@@ -24,7 +26,7 @@ class AuthController extends Controller
 
     public function showUserCP(Request $request)
     {
-        if (!$request->session()->has('mojangAccessToken')) {
+        if (!$request->session()->has('mojangAccessCode')) {
             return redirect()->route('mojang::getLogin');
         }
 
@@ -40,6 +42,44 @@ class AuthController extends Controller
     public function createSession(Request $request)
     {
         $rules = [
+            'mcAuthCode'    => 'required',
+        ];
+
+        $validation = Validator::make($request->all(), $rules);
+
+        if ($validation->fails()) {
+            return redirect()->back()->withInput()->withErrors($validation);
+        }
+
+        $codeEntry;
+
+        try {
+            $codeEntry = MojangLoginCode::where('code', $request->get('mcAuthCode'))->first();
+        } catch (ModelNotFoundException $e) {
+            return redirect()->back()->withErrors([
+                'mcError' => 'The login code used does not exist.',
+            ]);
+        }
+
+        if($codeEntry->used) {
+            return redirect()->back()->withErrors([
+                'mcError' => 'The login code used has already been used.',
+            ]);
+        }
+
+        if(Carbon::parse($codeEntry->created_at)->diffInMinutes(Carbon::now) > 10) {
+            return redirect()->back()->withErrors([
+                'mcError' => 'The login code used is no longer valid (code expiration).',
+            ]);
+        }
+
+        $request->session()->put('mojangAccessCode', $codeEntry->code);
+        $request->session()->put('mojangUsername', $codeEntry->username);
+        $request->session()->put('mojangUUID', $codeEntry->uuid);
+
+        return redirect()->route('mojang::getUserCP');
+        
+        /*$rules = [
             'email'    => 'required',
             'password' => 'required',
         ];
@@ -72,7 +112,7 @@ class AuthController extends Controller
             ]);
         }
 
-        return redirect()->back();
+        return redirect()->back();*/
     }
 
     public function destroySession(Request $request)
