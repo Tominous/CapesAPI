@@ -13,7 +13,14 @@
                     <h3 class="panel-title">Logging into Capes API</h3>
                 </div>
                 <div class="panel-body">
-                    
+                    <p>
+                        To recieve your unique login code join the CapesAPI auth server at 
+                        <code>mcauth.capesapi.com</code>.
+                    </p>
+                    <p>
+                        Join with 1.11.2 and you'll be kicked with your auth code. This code 
+                        is only valid for 10 minutes and can only be used once.
+                    </p>
                 </div>
             </div>
         </div>
