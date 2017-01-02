@@ -17,7 +17,7 @@
                     <h4>Information</h4>
                     Project ID: <code> {{ $project->hash }} </code><br/>
                     Created: {{ Carbon::parse($project->created_at)->toDayDateTimeString() }}<br/>
-                    Capes: {{ count($capes) }}<br/>
+                    Capes: {{ Capes::where('project_id', $project->id)->count() }}<br/>
                     Website: <a href="{{ $project->website }}" target="_blank">{{ $project->website }}</a>
                     <br/><br/>
                     <a href="{{ route('developer::project::showCreateCape', ['hash' => $project->hash]) }}" type="button" class="btn btn-sm btn-success">Create Cape</a>
