@@ -57,7 +57,7 @@ class AuthController extends Controller
                 ]);
             }
 
-            if(Carbon::parse($codeEntry->created_at)->diffInMinutes(Carbon::now) > 10) {
+            if(Carbon::parse($codeEntry->created_at)->diffInMinutes(Carbon::now()) > 10) {
                 return redirect()->back()->withErrors([
                     'mcError' => 'The login code used is no longer valid (code expiration).',
                 ]);
