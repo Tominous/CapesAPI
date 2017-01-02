@@ -6,11 +6,7 @@ use ActiveCapes;
 use CapesAPI\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use MojangLoginCode;
-use Navarr\MinecraftAPI\Exception\BadLoginException;
-use Navarr\MinecraftAPI\Exception\BasicException;
-use Navarr\MinecraftAPI\Exception\MigrationException;
-use Navarr\MinecraftAPI\MinecraftAPI;
+use CapesAPI\MojangLoginCode;
 use Validator;
 
 class AuthController extends Controller

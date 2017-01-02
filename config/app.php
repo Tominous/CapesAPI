@@ -234,7 +234,6 @@ return [
         'Role'         => CapesAPI\Role::class,
         'Permission'   => CapesAPI\Permission::class,
         'Inspiring'    => Illuminate\Foundation\Inspiring::class,
-        'MojangLoginCode' => CapesAPI\MojangLoginCode::class,
     ],
 
 ];
