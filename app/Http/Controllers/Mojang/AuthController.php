@@ -3,6 +3,7 @@
 namespace CapesAPI\Http\Controllers\Mojang;
 
 use ActiveCapes;
+use Carbon;
 use CapesAPI\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -65,6 +66,9 @@ class AuthController extends Controller
             $request->session()->put('mojangAccessCode', $codeEntry->code);
             $request->session()->put('mojangUsername', $codeEntry->username);
             $request->session()->put('mojangUUID', $codeEntry->uuid);
+            
+            $codeEntry->used = true;
+            $codeEntry->save();
 
             return redirect()->route('mojang::getUserCP');
         } catch (ModelNotFoundException $e) {
