@@ -3,11 +3,11 @@
 namespace CapesAPI\Http\Controllers\Mojang;
 
 use ActiveCapes;
-use Carbon;
 use CapesAPI\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use CapesAPI\MojangLoginCode;
+use Carbon;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Request;
 use Validator;
 
 class AuthController extends Controller
@@ -51,13 +51,13 @@ class AuthController extends Controller
         try {
             $codeEntry = MojangLoginCode::where('code', $request->get('mcAuthCode'))->firstOrFail();
 
-            if($codeEntry->used) {
+            if ($codeEntry->used) {
                 return redirect()->back()->withErrors([
                     'mcError' => 'The login code used has already been used.',
                 ]);
             }
 
-            if(Carbon::parse($codeEntry->created_at)->diffInMinutes(Carbon::now()) > 10) {
+            if (Carbon::parse($codeEntry->created_at)->diffInMinutes(Carbon::now()) > 10) {
                 return redirect()->back()->withErrors([
                     'mcError' => 'The login code used is no longer valid (code expiration).',
                 ]);
@@ -66,7 +66,7 @@ class AuthController extends Controller
             $request->session()->put('mojangAccessCode', $codeEntry->code);
             $request->session()->put('mojangUsername', $codeEntry->username);
             $request->session()->put('mojangUUID', $codeEntry->uuid);
-            
+
             $codeEntry->used = true;
             $codeEntry->save();
 
@@ -78,7 +78,7 @@ class AuthController extends Controller
         }
 
         return redirect()->back();
-        
+
         /*$rules = [
             'email'    => 'required',
             'password' => 'required',
