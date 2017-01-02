@@ -51,33 +51,33 @@ class AuthController extends Controller
             return redirect()->back()->withInput()->withErrors($validation);
         }
 
-        $codeEntry;
-
         try {
             $codeEntry = MojangLoginCode::where('code', $request->get('mcAuthCode'))->first();
+
+            if($codeEntry->used) {
+                return redirect()->back()->withErrors([
+                    'mcError' => 'The login code used has already been used.',
+                ]);
+            }
+
+            if(Carbon::parse($codeEntry->created_at)->diffInMinutes(Carbon::now) > 10) {
+                return redirect()->back()->withErrors([
+                    'mcError' => 'The login code used is no longer valid (code expiration).',
+                ]);
+            }
+
+            $request->session()->put('mojangAccessCode', $codeEntry->code);
+            $request->session()->put('mojangUsername', $codeEntry->username);
+            $request->session()->put('mojangUUID', $codeEntry->uuid);
+
+            return redirect()->route('mojang::getUserCP');
         } catch (ModelNotFoundException $e) {
             return redirect()->back()->withErrors([
                 'mcError' => 'The login code used does not exist.',
             ]);
         }
 
-        if($codeEntry->used) {
-            return redirect()->back()->withErrors([
-                'mcError' => 'The login code used has already been used.',
-            ]);
-        }
-
-        if(Carbon::parse($codeEntry->created_at)->diffInMinutes(Carbon::now) > 10) {
-            return redirect()->back()->withErrors([
-                'mcError' => 'The login code used is no longer valid (code expiration).',
-            ]);
-        }
-
-        $request->session()->put('mojangAccessCode', $codeEntry->code);
-        $request->session()->put('mojangUsername', $codeEntry->username);
-        $request->session()->put('mojangUUID', $codeEntry->uuid);
-
-        return redirect()->route('mojang::getUserCP');
+        return redirect()->back();
         
         /*$rules = [
             'email'    => 'required',
