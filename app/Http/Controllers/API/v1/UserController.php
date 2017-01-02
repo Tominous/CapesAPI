@@ -13,6 +13,8 @@ class UserController extends Controller
 {
     public function getCape($uuid)
     {
+        $uuid = self::formatUUID($uuid);
+        
         $activeCape = ActiveCapes::where([
             'uuid'   => $uuid,
             'active' => true,
@@ -50,11 +52,14 @@ class UserController extends Controller
 
     public function hasCape($uuid, $capeHash)
     {
+        $uuid = self::formatUUID($uuid);
         return (ActiveCapes::where(['uuid' => $uuid, 'cape_hash' => $capeHash])->exists()) ? 1 : 0;
     }
 
     public function addCape(Request $request, $uuid)
     {
+        $uuid = self::formatUUID($uuid);
+
         if (!$request->has('capeId')) {
             abort(404);
         }
@@ -96,5 +101,12 @@ class UserController extends Controller
         }
 
         return 1;
+    }
+
+    private function formatUUID($uuid) {
+        if(str_contains($uuid, '-'))
+            return str_replace('-', '', $uuid);
+        else
+            return $uuid;
     }
 }
