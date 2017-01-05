@@ -11,5 +11,3 @@
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js"></script>
