@@ -153,8 +153,8 @@
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js"></script>
     <script>
         function onAdBlock() {
-            alert('AdBlock detected.');
-            window.location = 'https://youtu.be/ifBpjs36kFs?t=2m9s';
+            alert('AdBlock detected. Consider disabling it on CapesAPI to help pay for our servers.');
+            //window.location = 'https://youtu.be/ifBpjs36kFs?t=2m9s';
         }
         
         if(typeof fuckAdBlock === 'undefined') {
