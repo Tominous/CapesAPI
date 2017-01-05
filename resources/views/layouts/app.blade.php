@@ -150,5 +150,19 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js"></script>
+    <script>
+        function onAdBlock() {
+            alert('AdBlock detected.');
+            window.location('https://youtu.be/ifBpjs36kFs?t=2m9s');
+        }
+        
+        if(typeof fuckAdBlock === 'undefined') {
+            onAdBlock();
+        } else {
+            fuckAdBlock.onDetected(onAdBlock);
+            fuckAdBlock.on(true, onAdBlock);
+        }
+    </script>
 </body>
 </html>
