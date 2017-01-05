@@ -154,7 +154,7 @@
     <script>
         function onAdBlock() {
             alert('AdBlock detected.');
-            window.location('https://youtu.be/ifBpjs36kFs?t=2m9s');
+            window.location = 'https://youtu.be/ifBpjs36kFs?t=2m9s';
         }
         
         if(typeof fuckAdBlock === 'undefined') {
