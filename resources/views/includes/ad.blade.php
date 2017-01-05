@@ -1,5 +1,5 @@
-<script data-cfasync="false" type="text/javascript" src="https://www.adnetworkperformance.com/a/display.php?r=1484201"></script>
-<script data-cfasync="false" type="text/javascript" src="https://www.adnetworkperformance.com/a/display.php?r=1484205"></script>
+{{-- <script data-cfasync="false" type="text/javascript" src="https://www.adnetworkperformance.com/a/display.php?r=1484201"></script>
+<script data-cfasync="false" type="text/javascript" src="https://www.adnetworkperformance.com/a/display.php?r=1484205"></script> --}}
 <script data-cfasync="false" type="text/javascript" src="https://www.adnetworkperformance.com/a/display.php?r=1484209"></script>
 
 {{-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
