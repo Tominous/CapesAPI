@@ -157,12 +157,14 @@
             //window.location = 'https://youtu.be/ifBpjs36kFs?t=2m9s';
         }
         
-        if(typeof fuckAdBlock === 'undefined') {
-            onAdBlock();
-        } else {
-            fuckAdBlock.onDetected(onAdBlock);
-            fuckAdBlock.on(true, onAdBlock);
-        }
+        $(document).ready(function() {
+            if(typeof fuckAdBlock === 'undefined') {
+                onAdBlock();
+            } else {
+                fuckAdBlock.onDetected(onAdBlock);
+                fuckAdBlock.on(true, onAdBlock);
+            }
+        });
     </script>
 </body>
 </html>
