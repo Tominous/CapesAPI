@@ -30,6 +30,11 @@
                         <hr/>
                         @endif
                     @endforeach
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-4">
+                            {{ $users->links() }}
+                        </div>
+                    </div>
                 @else
                     <h4>No users are currently verified.</h4>
                 @endif
