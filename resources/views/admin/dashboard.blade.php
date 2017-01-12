@@ -61,6 +61,11 @@
                         <hr/>
                         @endif
                     @endforeach
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-4">
+                            {{ $users->links() }}
+                        </div>
+                    </div>
                 @else
                     <h4>No users currently need verified. Go grab some coffee, take a break, and good job {{ Auth::user()->name }}!</h4>
                 @endif
