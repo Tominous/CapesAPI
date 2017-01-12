@@ -22,7 +22,7 @@
 
                         <div class="row vcenter">
                             <div class="col-md-12">
-                                <h4>{{ $user->name }} <span class="badge">{{ $user->email }}</span> <small>Registered on {{ Carbon::parse($user->created_at)->diffForHumans() }}</h4>
+                                <h4>{{ $user->name }} <span class="badge">{{ $user->email }}</span> <small>Registered {{ Carbon::parse($user->created_at)->diffForHumans() }}</h4>
                             </div>
                         </div>
 
