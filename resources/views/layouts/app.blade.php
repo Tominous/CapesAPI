@@ -104,9 +104,6 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    @role('admin')
-                                    <li><a href="{{ route('admin::dashboard') }}">Administration</a></li>
-                                    @endrole
                                     <li><a href="{{ route('developer::dashboard') }}">Dashboard</a></li>
                                     <li><a href="{{ route('api-docs') }}" target="_blank">Documentation</a></li>
                                     <li>
@@ -122,6 +119,19 @@
                                     </li>
                                 </ul>
                             </li>
+                            
+                            @role('admin')
+                                <li class="dropdown">
+                                    <a href="#" class="dropdlgwn-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                        Administration <span class="caret"></span>
+                                    </a>
+
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="{{ route('admin::dashboard') }}">Dashboard</a></li>
+                                        <li><a href="{{ route('admin::developers') }}">Developers</a></li>
+                                    </ul>
+                                </li>
+                            @endrole
                         @endif
                     </ul>
                 </div>

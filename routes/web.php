@@ -92,9 +92,10 @@ Route::group([
     'middleware' => ['role:admin'],
 ], function () {
     Route::get('/', 'AdminController@showDashboard')->name('dashboard');
+    Route::get('developers', 'AdminController@showDevelopers')->name('developers');
+    
     // users
     // banned
-    // developers
 
     Route::post('developer-user', 'AdminController@makeDeveloper')->name('makeDeveloper');
     Route::delete('developer-user', 'AdminController@stripDeveloper')->name('stripDeveloper');

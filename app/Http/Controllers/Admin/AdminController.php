@@ -24,6 +24,10 @@ class AdminController extends Controller
 
     public function showDevelopers()
     {
+        $developer = Role::where('name', 'developer')->first();
+        $developers = DB::table('role_user')->where('role_id', $developer->id)->get();
+
+        return view('admin.developers', ['users' => $developers]);
     }
 
     public function showUsers()
