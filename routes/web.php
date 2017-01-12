@@ -93,7 +93,7 @@ Route::group([
 ], function () {
     Route::get('/', 'AdminController@showDashboard')->name('dashboard');
     Route::get('developers', 'AdminController@showDevelopers')->name('developers');
-    
+
     // users
     // banned
 
