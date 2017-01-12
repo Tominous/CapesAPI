@@ -161,7 +161,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     
-    @if(!Ntrust::role('admin'))
+    @if(!\Ntrust::role('admin'))
     <script async src="https://cdnjs.cloudflare.com/ajax/libs/fuckadblock/3.2.1/fuckadblock.min.js"></script>
     <script>
         function onAdBlock() {
