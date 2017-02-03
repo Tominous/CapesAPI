@@ -95,7 +95,7 @@ class UsersController extends Controller
                     redirect()->back();
                 }
 
-                if(ActiveCapes::where([
+                if (ActiveCapes::where([
                     'cape_hash' => $capeHash,
                     'uuid'      => $uuid,
                 ])->exists()) {
