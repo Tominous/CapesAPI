@@ -71,6 +71,10 @@ class UserController extends Controller
             abort(404);
         }
 
+        if(self::hasCape($uuid, $cape->hash)) {
+            return 1;
+        }
+
         $project = Projects::where('id', $cape->project_id)->first();
 
         if ($project === null) {
