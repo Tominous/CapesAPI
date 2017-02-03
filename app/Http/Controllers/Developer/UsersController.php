@@ -95,6 +95,13 @@ class UsersController extends Controller
                     redirect()->back();
                 }
 
+                if(ActiveCapes::where([
+                    'cape_hash' => $capeHash,
+                    'uuid'      => $uuid,
+                ])->exists()) {
+                    return redirect()->back();
+                }
+
                 ActiveCapes::create([
                     'uuid'      => $uuid,
                     'cape_hash' => $capeHash,
@@ -102,7 +109,7 @@ class UsersController extends Controller
 
                 return redirect()->route('developer::project::showCapeUsers', ['hash' => $project->hash, 'capeHash' => $capeHash]);
             } else {
-                redirect()->back()->withInput();
+                return redirect()->back()->withInput();
             }
         }
     }
