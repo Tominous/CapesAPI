@@ -10,7 +10,7 @@
 
             <h2>Donation Goal <small>${{ env('DONATE_AMOUNT', 0) }}/${{ env('DONATE_GOAL', 100) }}</small></h2>
             <div class="progress progress-striped active">
-            <div class="progress-bar" style="width: {{ env('DONATE_AMOUNT', 0) }}%"></div>
+                <div class="progress-bar" style="width: {{ env('DONATE_AMOUNT', 0) }}%"></div>
             </div>
         </p>
         <p>
