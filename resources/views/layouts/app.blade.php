@@ -179,5 +179,7 @@
         });
     </script>
     @endif
+
+    @include('includes.analytics')
 </body>
 </html>
