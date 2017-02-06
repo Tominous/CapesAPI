@@ -1,0 +1,34 @@
+.flex-grid {
+  display: -webkit-box;
+  display: flex;
+}
+
+.flex-grid .col {
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
+.flex-grid-thirds {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+
+.flex-grid-thirds .col {
+  width: 32%;
+}
+
+@media (max-width: 400px) {
+  .flex-grid,
+  .flex-grid-thirds {
+    display: block;
+  }
+  .flex-grid .col,
+  .flex-grid-thirds .col {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+}
+
+/*# sourceMappingURL=flexgrid.css.map */
