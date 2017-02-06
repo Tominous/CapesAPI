@@ -22,6 +22,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/themes/yeti/bootstrap.min.css') }}" rel="stylesheet">
+
+    @yield('head')
     
     <!-- Scripts -->
     <script>
@@ -64,7 +66,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="{{ route('donate') }}"><i class="fa fa-heart-o" aria-hidden="true"></i> Donate <i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                            <a href="{{ route('donate') }}">Donate <i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a href="{{ route('clients') }}">Minecraft Clients <i class="fa fa-desktop" aria-hidden="true"></i></a>
                         </li>
                         @if(Session::get('mojangUUID'))
                         <li class="dropdown">
@@ -138,13 +143,8 @@
             </div>
         </nav>
 
-        @if(!Request::is('/'))
-        <div class="container">
-            <ol class="breadcrumb">
-            <li></li>
-            @yield('breadcrumb')
-            </ol>
-        </div>   
+        @if(!isset($noBreadcrumb))
+            @include('includes.breadcrumb')
         @endif
 
         @yield('content')

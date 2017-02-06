@@ -12,8 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'noBreadcrumb' => true,
+    ]);
 });
+
+Route::get('clients', function() {
+    return view('clients', [
+        'noBreadcrumb' => true,
+    ]);
+})->name('clients');
 
 Route::get('banned', function () {
     return view('roles.banned');
