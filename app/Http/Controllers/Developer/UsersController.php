@@ -102,10 +102,23 @@ class UsersController extends Controller
                     return redirect()->back();
                 }
 
-                ActiveCapes::create([
-                    'uuid'      => $uuid,
-                    'cape_hash' => $capeHash,
-                ]);
+                $currentActiveCape = ActiveCapes::where([
+                    'uuid'   => $uuid,
+                    'active' => true,
+                ])->first();
+
+                if ($currentActiveCape === null) {
+                    ActiveCapes::create([
+                        'uuid'      => $uuid,
+                        'cape_hash' => $capeHash,
+                        'active'    => true,
+                    ]);
+                } else {
+                    ActiveCapes::create([
+                        'uuid'      => $uuid,
+                        'cape_hash' => $capeHash,
+                    ]);
+                }
 
                 return redirect()->route('developer::project::showCapeUsers', ['hash' => $project->hash, 'capeHash' => $capeHash]);
             } else {

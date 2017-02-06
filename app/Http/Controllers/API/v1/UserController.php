@@ -90,7 +90,7 @@ class UserController extends Controller
         $currentActiveCape = ActiveCapes::where([
             'uuid'   => $uuid,
             'active' => true,
-        ]);
+        ])->first();
 
         if ($currentActiveCape === null) {
             ActiveCapes::create([
