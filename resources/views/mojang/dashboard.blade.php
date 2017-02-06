@@ -61,7 +61,7 @@
                     @endphp
                     <div class="row vcenter">
                         <div class="col-md-8 col-md-offset-1">
-                            <h4>{{ $cape->name }} <small>by {{ $developer->name }} from {{ $project->name }}</small></h4>
+                            <h4>{{ $cape->name }} <small>by {{ $developer->name }} from <a href="{{ $project->website }}" target="_blank">{{ $project->name }}</a></small></h4>
                         </div>
                         <div class="col-md-2">
                             <a type="button" class="btn btn-sm btn-primary" title="Make Cape Active" 
