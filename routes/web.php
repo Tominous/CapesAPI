@@ -17,7 +17,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('clients', function() {
+Route::get('clients', function () {
     return view('clients', [
         'noBreadcrumb' => true,
     ]);
