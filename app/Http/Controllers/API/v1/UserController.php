@@ -62,9 +62,9 @@ class UserController extends Controller
         $uuid = self::formatUUID($uuid);
         $body = $request->json()->all();
 
-        if(!array_has($body, 'capeId')) {
+        if (!array_has($body, 'capeId')) {
             return response()->json([
-                'errorMessage' => 'no cape id'
+                'errorMessage' => 'no cape id',
             ]);
         }
 
@@ -72,7 +72,7 @@ class UserController extends Controller
 
         if ($cape === null) {
             return response()->json([
-                'errorMessage' => 'no cape exists with that id'
+                'errorMessage' => 'no cape exists with that id',
             ]);
         }
 
@@ -84,7 +84,7 @@ class UserController extends Controller
 
         if ($project === null) {
             return response()->json([
-                'errorMessage' => 'no project with that cape id exists'
+                'errorMessage' => 'no project with that cape id exists',
             ]);
         }
 
@@ -92,7 +92,7 @@ class UserController extends Controller
 
         if ($user === null || !$user->hasRole(['developer', 'admin'])) {
             return response()->json([
-                'errorMessage' => 'no developer associated with that cape id'
+                'errorMessage' => 'no developer associated with that cape id',
             ]);
         }
 
