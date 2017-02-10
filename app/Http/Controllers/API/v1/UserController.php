@@ -60,15 +60,20 @@ class UserController extends Controller
     public function addCape(Request $request, $uuid)
     {
         $uuid = self::formatUUID($uuid);
+        $body = $request->json()->all();
 
-        if (!$request->has('capeId')) {
-            abort(404);
+        if(!array_has($body, 'capeId')) {
+            return response()->json([
+                'errorMessage' => 'no cape id'
+            ]);
         }
 
-        $cape = Capes::where('hash', $request->get('capeId'))->first();
+        $cape = Capes::where('hash', $body['capeId'])->first();
 
         if ($cape === null) {
-            abort(404);
+            return response()->json([
+                'errorMessage' => 'no cape exists with that id'
+            ]);
         }
 
         if (self::hasCape($uuid, $cape->hash)) {
@@ -78,13 +83,17 @@ class UserController extends Controller
         $project = Projects::where('id', $cape->project_id)->first();
 
         if ($project === null) {
-            abort(404);
+            return response()->json([
+                'errorMessage' => 'no project with that cape id exists'
+            ]);
         }
 
         $user = User::where('id', $project->developer_id)->first();
 
         if ($user === null || !$user->hasRole(['developer', 'admin'])) {
-            abort(404);
+            return response()->json([
+                'errorMessage' => 'no developer associated with that cape id'
+            ]);
         }
 
         $currentActiveCape = ActiveCapes::where([
