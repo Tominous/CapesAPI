@@ -12,6 +12,13 @@
     <div class="flex-grid-thirds">
         <div class="col">
             <div class="callout callout-primary">
+                <h4><a href="https://github.com/MatthewSH/minecraft-Huzuni" target="_blank">Huzuni</a></h4>
+                By <a href="https://twitter.com/matththedev" target="_blank">Matthew H</a> (originally by Hal)</a>.
+            </div>
+        </div>
+        
+        <div class="col">
+            <div class="callout callout-primary">
                 <h4><a href="https://liquidbounce.net/" target="_blank">Liquid Bounce</a></h4>
                 By <a href="https://twitter.com/SenkJu" target="_blank">heafie</a> and <a href="https://twitter.com/SenkJu" target="_blank">Marco_MC</a>.
             </div>
