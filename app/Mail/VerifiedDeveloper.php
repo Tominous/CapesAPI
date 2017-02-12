@@ -5,14 +5,13 @@ namespace CapesAPI\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class VerifiedDeveloper extends Mailable
 {
     use Queueable, SerializesModels;
 
     /**
-     * The developer's username
+     * The developer's username.
      */
     public $username;
 

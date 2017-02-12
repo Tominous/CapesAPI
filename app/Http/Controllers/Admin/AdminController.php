@@ -3,12 +3,12 @@
 namespace CapesAPI\Http\Controllers\Admin;
 
 use CapesAPI\Http\Controllers\Controller;
+use CapesAPI\Mail\VerifiedDeveloper;
 use DB;
 use Illuminate\Http\Request;
+use Mail;
 use Role;
 use User;
-use Mail;
-use CapesAPI\Mail\VerifiedDeveloper;
 
 class AdminController extends Controller
 {
