@@ -7,6 +7,8 @@ use DB;
 use Illuminate\Http\Request;
 use Role;
 use User;
+use Mail;
+use CapesAPI\Mail\VerifiedDeveloper;
 
 class AdminController extends Controller
 {
@@ -47,6 +49,8 @@ class AdminController extends Controller
 
             $user->roles()->detach($unverified->id);
             $user->roles()->attach($role->id);
+
+            Mail::to($user->email)->send(new VerifiedDeveloper($user->name));
 
             return redirect()->back();
         }
