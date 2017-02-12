@@ -19,8 +19,8 @@
 
         <div class="col">
             <div class="callout callout-primary">
-                <h4><a href="http://skillclient.tk/" target="_blank">Skill Client</a></h4>
-                By <a href="https://twitter.com/MCmodding4k" target="_blank">MCmodding4k</a>.
+                <h4><a href="http://skillclient.tk/" target="_blank">SkillClient</a></h4>
+                By <a href="http://youtube.com/MCModding4K" target="_blank">MCmodding4k</a>.
             </div>
         </div>
 
