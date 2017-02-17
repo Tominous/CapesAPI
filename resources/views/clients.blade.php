@@ -8,8 +8,8 @@
     <div class="row">
         <div class="col-md-4">
             <div class="callout callout-primary">
-                <h4><a href="https://github.com/MatthewSH/minecraft-Huzuni" target="_blank">Huzuni</a></h4>
-                By <a href="https://twitter.com/matththedev" target="_blank">Matthew H</a> (originally by Hal)</a>.
+                <h4><a href="http://fusionxclient.weebly.com/" target="_blank">FusionX Client</a></h4>
+                By <a href="https://twitter.com/CheerioFX" target="_blank">CheerioFX</a>.
             </div>
         </div>
         
