@@ -1,5 +1,4 @@
-<script data-cfasync="false" type="text/javascript" src="https://www.adnetworkperformance.com/a/display.php?r=1484205"></script>
-<script data-cfasync="false" type="text/javascript" src="https://www.adnetworkperformance.com/a/display.php?r=1484209"></script>
+<script data-cfasync="false" type="text/javascript" src="https://www.adnetworkperformance.com/a/display.php?r=1518151"></script>
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Capes API -->
