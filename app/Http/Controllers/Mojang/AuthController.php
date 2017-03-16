@@ -3,6 +3,7 @@
 namespace CapesAPI\Http\Controllers\Mojang;
 
 use ActiveCapes;
+use Capes;
 use CapesAPI\Http\Controllers\Controller;
 use CapesAPI\MojangLoginCode;
 use Carbon;
@@ -125,7 +126,7 @@ class AuthController extends Controller
     public function makeCapeActive(Request $request)
     {
         $uuid = $request->session()->get('mojangUUID');
-        $capeHash = $request->get('capeHash');
+        $capeId = $request->get('capeId');
 
         $capes = ActiveCapes::where([
             'uuid'   => $uuid,
@@ -137,9 +138,15 @@ class AuthController extends Controller
             $cape->save();
         }
 
+        $cape = Capes::find($capeId);
+
+        if($cape == null) {
+            return redirect()->back();
+        }
+
         $newCape = ActiveCapes::where([
             'uuid'      => $uuid,
-            'cape_hash' => $capeHash,
+            'cape_hash' => $cape->hash,
         ])->first();
 
         if ($newCape != null) {

@@ -66,12 +66,12 @@
                         <div class="col-md-2">
                             <a type="button" class="btn btn-sm btn-primary" title="Make Cape Active" 
                                 onclick="event.preventDefault();
-                                         document.getElementById('set-cape-active-{{ $cape->hash }}').submit();">
+                                         document.getElementById('set-cape-active-{{ $cape->id }}').submit();">
                                 Set Active</a>
-                            <form id="set-cape-active-{{ $cape->hash }}" action="{{ route('mojang::putCapeActive') }}" method="POST" style="display: none;">
+                            <form id="set-cape-active-{{ $cape->id }}" action="{{ route('mojang::putCapeActive') }}" method="POST" style="display: none;">
                                 {{ method_field('PUT') }}
                                 {{ csrf_field() }}
-                                <input value="{{ $cape->hash }}" id="capeHash" name="capeHash" />
+                                <input value="{{ $cape->id }}" id="capeId" name="capeId" />
                             </form>
                         </div>
                     </div>
