@@ -140,7 +140,7 @@ class AuthController extends Controller
 
         $cape = Capes::find($capeId);
 
-        if($cape == null) {
+        if ($cape == null) {
             return redirect()->back();
         }
 
