@@ -23,6 +23,12 @@ Route::get('clients', function () {
     ]);
 })->name('clients');
 
+Route::get('alts', function () {
+    return view('alts', [
+        'noBreadcrumb' => true,
+    ]);
+})->name('alts');
+
 Route::get('banned', function () {
     return view('roles.banned');
 })->name('banned');

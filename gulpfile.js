@@ -16,5 +16,6 @@ require('laravel-elixir-vue-2');
 elixir((mix) => {
     mix.sass('app.scss')
        .sass('flexgrid.scss')
+       .sass('pricing.scss')
        .webpack('app.js');
 });
