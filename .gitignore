@@ -7,3 +7,5 @@
 Homestead.json
 Homestead.yaml
 .env
+.env_v1
+.env_v2
