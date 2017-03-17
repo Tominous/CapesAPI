@@ -29,6 +29,12 @@ Route::get('alts', function () {
     ]);
 })->name('alts');
 
+Route::get('advertising', function () {
+    return view('advertising', [
+        'noBreadcrumb' => true,
+    ]);
+})->name('advertising');
+
 Route::get('banned', function () {
     return view('roles.banned');
 })->name('banned');
