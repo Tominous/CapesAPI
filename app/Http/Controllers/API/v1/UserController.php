@@ -21,12 +21,6 @@ class UserController extends Controller
         ])->first();
 
         if ($activeCape === null) {
-            $showAd = random_int(1, 100);
-
-            if ($showAd <= 25) {
-                return redirect('http://a.targetserving.com/request/?z=410343');
-            }
-
             abort(404);
         }
 
