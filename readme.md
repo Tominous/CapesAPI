@@ -6,7 +6,10 @@ With some of the features in CapesAPI 2 (including the in-site economy known as 
 Thank you all and see you soon!
 
 Regards,
+
 [Matthew H](https://twitter.com/matththedev)
 
+------
 [Halfpetal](https://halfpetal.com)
+
 [CapesAPI](https://capesapi.com)
