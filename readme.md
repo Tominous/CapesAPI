@@ -1,31 +1,11 @@
-# [CapesAPI](http://capesapi.com)
-### ***Making capes easier for Minecraft client and mod developers.***
+## CapesAPI Public is now Archived
+It's been months since we updated CapesAPI on the public repositories (around 8 months as of today) and have decided to rewrite CapesAPI 2 from the ground up using Laravel 5.5. We decided that CapesAPI 2 and all future releases will be closed source. 
 
-## About
-Capes API is built by [Halfpetal](http://halfpetal.com) to help client and mod developers for Minecraft implement custom capes into their system.
+With some of the features in CapesAPI 2 (including the in-site economy known as Diamonds) we wanted to ensure the protection of our users, of our code, and of our property. So, CapesAPI will now be archived.
 
-Our goal is to create a simple, straight-forward system that anyone can just hop into and learn. We've made it  easy with our client developer made [client implementation](https://github.com/halfpetal/CapesAPI-ClientImplementation) to integrate our system into any client. It's so simple, we might as well call it drag-and-drop. It will make you say, "why hasn't anyone done this sooner?"
+Thank you all and see you soon!
 
-We're looking forward to working with all the new (and old) developers that will help make CapesAPI a wonderful service to everyone.
+- [Matthew](https://twitter.com/matththedev)
 
-## v2.0
-Version 2.0 is our next major release of CapesAPI and it's a full rewrite of the project. Version 1 is great, don't get us wrong, but it definitely lacks in many areas. It suits the needs as a minimum viable product, but it wouldn't for a full fledged system. Version 2 will introduce many new features that will make the entire system much more appealing, especially for the cape designers and the everyday player.
-
-You can keep up with the progress on the [project page here](https://github.com/halfpetal/CapesAPI/projects/1) or on the [branch here](https://github.com/halfpetal/CapesAPI/tree/dev-2.0.0)
-
-## License
-You can view the full license [here](https://github.com/halfpetal/Licenses/blob/master/CapesAPI.md#license), however here's the rundown (also showed on the license).
-
-### Allowed
-* Suggestions
-* Bug reporting
-* Contributions
-* Use of this software for **contributions purposes only**
-
-### Not Allowed
-* Use of this software outside of contribution
-* Taking any suggestions or ideas from project
-* Taking any of the code from project
-
-## Security
-If you discover a vulnerability with CapesAPI, please send an email to our security team at security@halfpetal.com. All issues will be promptly addressed.
+[Halfpetal](https://halfpetal.com)
+[CapesAPI](https://capesapi.com)
